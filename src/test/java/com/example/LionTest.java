@@ -14,14 +14,17 @@ class LionTest {
     @Spy
     Feline felineSpy = new Feline();
 
-    @Test
-    void getKittensReturnOne() {
 
+    @Test
+    void getKittensReturnOne() throws Exception {
+        Lion lion = new Lion("Самец", new Feline());
+        assertEquals(1, lion.getKittens());
     }
+
 
     @Test
     void getFoodShouldCallFelineGetFood() throws Exception {
-        Lion lion = new Lion("Самка");
+        Lion lion = new Lion("Самка", new Feline());
         lion.feline = felineSpy;
         lion.getFood();
         verify(felineSpy).getFood("Хищник");

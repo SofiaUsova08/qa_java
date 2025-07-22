@@ -16,7 +16,7 @@ public class LionParameterizedTests {
             "Самец, true"
     })
     void ConstructorWithCorrectSexAndParamsCsv(String sex, boolean expectedResult) throws Exception {
-        Lion lion = new Lion(sex);
+        Lion lion = new Lion(sex, new Feline());
         boolean actual = lion.hasMane;
         assertEquals(expectedResult, actual);
     }
@@ -25,7 +25,7 @@ public class LionParameterizedTests {
     @ValueSource(strings = {"Unknown", "", " ", "123", "User", "&&^%!"})
     @DisplayName("Вызов метода с неизвестным полом в конструкторе вызывает исключение Exception")
     void ConstructorWithUnknownSexAndValueSourceReturnException(String sex) throws Exception {
-        Executable executable = () -> new Lion(sex);
+        Executable executable = () -> new Lion(sex, new Feline());
 
         assertThrows(
                 Exception.class,
@@ -40,7 +40,7 @@ public class LionParameterizedTests {
             "Самец, true"
     })
     void doesHaveManeWithCorrectSexAndParamsCsv(String sex, boolean expectedResult) throws Exception {
-        Lion lion = new Lion(sex);
+        Lion lion = new Lion(sex, new Feline());
         boolean actual = lion.doesHaveMane();
         assertEquals(expectedResult, actual);
     }
