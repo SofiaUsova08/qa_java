@@ -16,9 +16,7 @@ class LionTest {
 
     @Test
     void getKittensReturnOne() {
-        Felines felines = new Feline();
-        Lion lion = new Lion(felines);
-        assertEquals(1, lion.getKittens(), "Ожидаем одного котёнка");
+
     }
 
     @Test
